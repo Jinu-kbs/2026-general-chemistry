@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026-1 일반화학 I 강의계획서 | 화공에너지</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --navy: #0f2b46;
+            --blue: #1a6fb5;
+            --sky: #e8f4fd;
+            --white: #ffffff;
+            --gray-50: #f8fafc;
+            --gray-100: #f1f5f9;
+            --gray-200: #e2e8f0;
+            --gray-400: #94a3b8;
+            --gray-600: #475569;
+            --gray-800: #1e293b;
+            --red: #dc2626;
+            --red-bg: #fef2f2;
+            --amber: #d97706;
+            --amber-bg: #fffbeb;
+            --green: #16a34a;
+            --green-bg: #f0fdf4;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            background: var(--gray-50);
+            color: var(--gray-800);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        /* ── Header ── */
+        .hero {
+            background: var(--navy);
+            color: var(--white);
+            padding: 3.5rem 2rem 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%; left: -50%;
+            width: 200%; height: 200%;
+            background: radial-gradient(circle at 30% 50%, rgba(26,111,181,0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 80%, rgba(26,111,181,0.15) 0%, transparent 40%);
+        }
+        .hero > * { position: relative; z-index: 1; }
+        .hero .dept {
+            font-size: 0.85rem;
+            font-weight: 400;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: 0.8rem;
+        }
+        .hero h1 { font-size: 2.2rem; font-weight: 700; margin-bottom: 0.3rem; }
+        .hero .en { font-size: 1rem; font-weight: 300; opacity: 0.8; }
+        .hero .semester {
+            display: inline-block;
+            margin-top: 1.2rem;
+            padding: 0.4rem 1.5rem;
+            border: 1px solid rgba(255,255,255,0.3);
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 400;
+        }
+
+        /* ── Layout ── */
+        .wrap { max-width: 860px; margin: 0 auto; padding: 2rem 1.5rem 3rem; }
+
+        /* ── Section ── */
+        .section {
+            background: var(--white);
+            border-radius: 14px;
+            margin-bottom: 1.4rem;
+            border: 1px solid var(--gray-200);
+            overflow: hidden;
+        }
+        .section-head {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 1.2rem 1.6rem;
+            border-bottom: 1px solid var(--gray-200);
+            background: var(--gray-50);
+        }
+        .section-head .icon {
+            width: 28px; height: 28px;
+            display: flex; align-items: center; justify-content: center;
+            background: var(--blue);
+            color: white;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+        }
+        .section-head h2 { font-size: 1.05rem; font-weight: 600; color: var(--navy); }
+        .section-body { padding: 1.4rem 1.6rem; }
+
+        /* ── Info Grid ── */
+        .info-row {
+            display: flex;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--gray-100);
+        }
+        .info-row:last-child { border-bottom: none; }
+        .info-key {
+            width: 90px;
+            flex-shrink: 0;
+            font-weight: 600;
+            color: var(--blue);
+            font-size: 0.9rem;
+        }
+        .info-val { color: var(--gray-800); }
+
+        /* ── List ── */
+        .checklist { list-style: none; padding: 0; }
+        .checklist li {
+            padding: 0.5rem 0 0.5rem 1.6rem;
+            position: relative;
+        }
+        .checklist li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--blue);
+            font-size: 0.7rem;
+            top: 0.7rem;
+        }
+        .checklist li strong { color: var(--navy); }
+
+        /* ── Callout ── */
+        .callout {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.7rem;
+            padding: 0.9rem 1.2rem;
+            border-radius: 10px;
+            margin-top: 1rem;
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
+        .callout.info { background: var(--sky); color: var(--navy); }
+        .callout.warn { background: var(--amber-bg); color: #92400e; }
+        .callout.danger { background: var(--red-bg); color: var(--red); }
+        .callout.success { background: var(--green-bg); color: #166534; }
+        .callout .callout-icon { font-size: 1.1rem; flex-shrink: 0; margin-top: 1px; }
+
+        /* ── Table ── */
+        table { width: 100%; border-collapse: collapse; }
+        thead th {
+            background: var(--navy);
+            color: var(--white);
+            font-weight: 500;
+            font-size: 0.88rem;
+            padding: 0.65rem 0.9rem;
+            text-align: left;
+        }
+        tbody td {
+            padding: 0.6rem 0.9rem;
+            border-bottom: 1px solid var(--gray-100);
+            font-size: 0.93rem;
+            vertical-align: top;
+        }
+        tbody tr:nth-child(even) { background: var(--gray-50); }
+        tbody tr:hover { background: var(--sky); }
+        .sub { display: block; color: var(--gray-400); font-size: 0.82rem; margin-top: 2px; }
+
+        /* ── Tags ── */
+        .tag {
+            display: inline-block;
+            padding: 0.15rem 0.55rem;
+            border-radius: 6px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .tag-review { background: var(--green-bg); color: var(--green); }
+        .tag-exam { background: #ede9fe; color: #7c3aed; }
+
+        /* ── Eval Table ── */
+        .eval-table td:first-child { font-weight: 600; color: var(--navy); width: 120px; }
+
+        /* ── Footer ── */
+        .footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            color: var(--gray-400);
+            font-size: 0.8rem;
+        }
+        .footer a { color: var(--blue); text-decoration: none; }
+
+        /* ── Responsive ── */
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.6rem; }
+            .wrap { padding: 1rem; }
+            .section-body { padding: 1rem 1.2rem; }
+            .info-row { flex-direction: column; gap: 0.1rem; }
+            .info-key { width: auto; }
+            table { font-size: 0.85rem; }
+            td, th { padding: 0.4rem 0.6rem; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ════ HEADER ════ -->
+<div class="hero">
+    <div class="dept">공과대학 화학공학과 · 에너지공학과</div>
+    <h1>일반화학 I</h1>
+    <div class="en">General Chemistry I</div>
+    <div class="semester">2026학년도 1학기 강의계획서</div>
+</div>
+
+<div class="wrap">
+
+    <!-- ── 과목 정보 ── -->
+    <div class="section">
+        <div class="section-head">
+            <div class="icon">i</div>
+            <h2>과목 정보</h2>
+        </div>
+        <div class="section-body">
+            <div class="info-row">
+                <span class="info-key">과목명</span>
+                <span class="info-val">일반화학 I (General Chemistry I)</span>
+            </div>
+            <div class="info-row">
+                <span class="info-key">대상</span>
+                <span class="info-val">화학공학과 / 에너지공학과 1학년</span>
+            </div>
+            <div class="info-row">
+                <span class="info-key">교재</span>
+                <span class="info-val">Chemistry: The Central Science (Brown) 15판</span>
+            </div>
+            <div class="info-row">
+                <span class="info-key">범위</span>
+                <span class="info-val">1장 ~ 12장</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── 수업 방식 ── -->
+    <div class="section">
+        <div class="section-head">
+            <div class="icon">📖</div>
+            <h2>수업 방식</h2>
+        </div>
+        <div class="section-body">
+            <ul class="checklist">
+                <li><strong>개념 중심 + 예제 중심</strong> &mdash; 핵심 개념을 대표 예제를 통해 학습합니다.</li>
+                <li><strong>토론식 / 발표식 수업</strong> &mdash; 조별 토론, 개별 발표, 질의응답을 통한 참여형 수업을 진행합니다.</li>
+                <li><strong>TA(조교) 지원</strong> &mdash; 연구실 조교가 보충 설명, 과제 관리, 질의응답을 지원합니다.</li>
+            </ul>
+            <div class="callout info">
+                <span class="callout-icon">💡</span>
+                <span>고등학교 화학II를 이수하지 않은 학생도 따라올 수 있도록 기초 개념부터 연결하여 설명합니다.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── 출석 ── -->
+    <div class="section">
+        <div class="section-head">
+            <div class="icon">✓</div>
+            <h2>출석</h2>
+        </div>
+        <div class="section-body">
+            <ul class="checklist">
+                <li><strong>전자출결</strong>을 사용합니다.</li>
+                <li>교수자가 출결을 켜는 시점이 <strong>출석 인정 기준</strong>입니다.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- ── 과제 ── -->
+    <div class="section">
+        <div class="section-head">
+            <div class="icon">✎</div>
+            <h2>과제 안내</h2>
+        </div>
+        <div class="section-body">
+            <ul class="checklist">
+                <li><strong>형태</strong> &mdash; 매주 <strong>주간일지</strong>를 작성하여 제출</li>
+                <li><strong>내용</strong> &mdash; 해당 주 학습 내용 정리 + 연습문제 풀이 + 개념 정리</li>
+                <li><strong>제출 형식</strong> &mdash; 웹 기반 산출물 (HTML 파일 또는 웹 페이지)</li>
+                <li><strong>제출 방법</strong> &mdash; 링크 제출 또는 파일 제출</li>
+            </ul>
+            <div class="callout danger">
+                <span class="callout-icon">⏰</span>
+                <span><strong>마감: 매주 금요일 오후 6시</strong> &mdash; 마감 이후 제출은 인정되지 않습니다.</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── 시험 및 평가 ── -->
+    <div class="section">
+        <div class="section-head">
+            <div class="icon">★</div>
+            <h2>시험 및 평가</h2>
+        </div>
+        <div class="section-body">
+            <table class="eval-table">
+                <thead>
+                    <tr><th>평가 항목</th><th>내용</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>중간고사</td><td><strong>없음</strong></td></tr>
+                    <tr><td>팝업퀴즈</td><td>약 6회 실시 (최소 1주일 전 사전 공지)</td></tr>
+                    <tr><td>기말고사</td><td>16주차 실시</td></tr>
+                    <tr><td>과제</td><td>매주 주간일지 제출</td></tr>
+                    <tr><td>수업 참여</td><td>토론 및 발표 참여도</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- ── 주차별 진도 ── -->
+    <div class="section">
+        <div class="section-head">
+            <div class="icon">📅</div>
+            <h2>주차별 진도 계획</h2>
+        </div>
+        <div class="section-body" style="padding: 0;">
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:55px">주차</th>
+                        <th style="width:60px">장</th>
+                        <th>내용</th>
+                        <th style="width:60px">비고</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td><td>1장</td>
+                        <td>서론: 물질, 에너지, 측정<span class="sub">Introduction: Matter, Energy, and Measurement</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>2</td><td>2장</td>
+                        <td>원자, 분자, 이온<span class="sub">Atoms, Molecules, and Ions</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>3</td><td>3장</td>
+                        <td>화학양론: 화학식과 화학반응식을 이용한 계산<span class="sub">Stoichiometry: Calculations with Chemical Formulas and Equations</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>4</td><td>3~4장</td>
+                        <td>화학양론 마무리 / 수용액 반응<span class="sub">Reactions in Aqueous Solution</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>5</td><td>4장</td>
+                        <td>수용액 반응 (계속)<span class="sub">Reactions in Aqueous Solution (cont.)</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>6</td><td>5장</td>
+                        <td>열화학<span class="sub">Thermochemistry</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>7</td><td>6장</td>
+                        <td>원자의 전자 구조<span class="sub">Electronic Structure of Atoms</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>8</td><td>7장</td>
+                        <td>원소의 주기적 성질<span class="sub">Periodic Properties of the Elements</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>9</td><td>8장</td>
+                        <td>화학결합의 기본 개념<span class="sub">Basic Concepts of Chemical Bonding</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>10</td><td>9장</td>
+                        <td>분자 기하학과 결합 이론<span class="sub">Molecular Geometry and Bonding Theories</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>11</td><td>10장</td>
+                        <td>기체<span class="sub">Gases</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>12</td><td>11장</td>
+                        <td>분자간 힘, 액체, 고체<span class="sub">Liquids and Intermolecular Forces</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>13</td><td>12장</td>
+                        <td>고체와 현대 재료<span class="sub">Solids and Modern Materials</span></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>14-15</td><td>-</td>
+                        <td>보충 및 복습</td>
+                        <td><span class="tag tag-review">복습</span></td>
+                    </tr>
+                    <tr>
+                        <td>16</td><td>-</td>
+                        <td>기말고사</td>
+                        <td><span class="tag tag-exam">시험</span></td>
+                    </tr>
+                </tbody>
+            </table>
+            <div style="padding: 0.8rem 1.6rem;">
+                <div class="callout warn" style="margin-top:0">
+                    <span class="callout-icon">📌</span>
+                    <span>진도는 학생 이해도에 따라 유동적으로 조정할 수 있습니다.</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── 참고사항 ── -->
+    <div class="section">
+        <div class="section-head">
+            <div class="icon">※</div>
+            <h2>참고사항</h2>
+        </div>
+        <div class="section-body">
+            <ul class="checklist">
+                <li>모든 공지사항은 이 페이지 및 학교 LMS를 통해 안내됩니다.</li>
+                <li>TA 연락처 및 오피스아워는 첫 수업 시간에 안내합니다.</li>
+                <li>질문은 수업 중 또는 TA를 통해 자유롭게 해주세요.</li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<div class="footer">
+    2026학년도 1학기 일반화학 I (화공에너지) | 최종 업데이트: 2026-03-12
+</div>
+
+</body>
+</html>
